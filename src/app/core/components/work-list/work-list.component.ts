@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Work } from '../../models/work.model';
+import { WorkListService } from '../../services/work-list.service';
 
 @Component({
   selector: 'work-list',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./work-list.component.scss']
 })
 export class WorkListComponent {
+  workList: Array<Work> = [];
+  showHidden: boolean = false;
 
+  constructor(private service: WorkListService) {}
+
+  ngOnInit() {
+    this.workList = this.service.workList;
+  }
+
+  openLink(link: string) {
+    window.location.href = link;
+  }
+
+  hide(index: number) {
+    this.workList[index].hidden = !this.workList[index].hidden;
+  }
 }

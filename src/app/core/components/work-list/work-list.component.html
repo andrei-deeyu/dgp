@@ -1,4 +1,28 @@
-<div>
-  <p>work-list works!</p>
+<div class="container-md">
+  <div class="menuBar mt-4">
+    <button
+      (click)="showHidden = !showHidden"
+      class="btn showHidden" [class]="showHidden ? 'btn-secondary' : 'btn-outline-secondary'">
+      {{ showHidden ? 'see shown' : 'show hidden' }}
+    </button>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 gx-5 mt-4">
+    <div *ngFor="let work of workList;index as i" class="col mt-4 mt-md-0">
+      <div *ngIf="!work.hidden || showHidden" class="conditionalShow" [class]="work.hidden ? 'hidden' : ''">
+        <img *ngIf="work.img" [src]="work.img" (click)="openLink(work.link)" alt="work picture"/>
+        <div class="d-flex flex-row mt-2">
+          <h4 (click)="openLink(work.link)" class="flex-fill">{{ work.title }}</h4>
+          <button
+            (click)="hide(i)"
+            class="btn ms-4" [class]="showHidden ? 'btn-secondary' : 'btn-outline-secondary'">
+            {{ work.hidden ? 'show' : 'hide' }}
+          </button>
+        </div>
+        <p>{{ work.details }}</p>
+      </div>
+    </div>
+  </div>
+
   <work-form></work-form>
 </div>

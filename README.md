@@ -3,7 +3,7 @@
 A small web application that lets manage the list of showcased works for a digital worker.
 
 ## Project Structure
-
+```bash
 ├───app
 │   └───core
 │       ├───components
@@ -12,3 +12,4 @@ A small web application that lets manage the list of showcased works for a digit
 │       ├───models
 │       └───services
 └───assets
+```

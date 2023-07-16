@@ -1,0 +1,25 @@
+.menuBar {
+
+  button.showHidden {
+    width: 8rem;
+  }
+}
+
+div.row > div.col {
+  div.conditionalShow.hidden {
+    background-color: rgba(128, 128, 128, 0.1);
+    h4, p { color: gray }
+    img { opacity: .2 }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    &:hover { cursor: pointer; }
+  }
+
+  h4:hover {
+    cursor: pointer;
+    color: darkblue;
+  }
+}
