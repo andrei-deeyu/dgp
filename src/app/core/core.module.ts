@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WorkListComponent } from './components/work-list/work-list.component';
 import { WorkFormComponent } from './components/work-form/work-form.component';
 import { WorkListService } from './services/work-list.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   providers: [
@@ -13,7 +14,8 @@ import { WorkListService } from './services/work-list.service';
     WorkFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     WorkListComponent

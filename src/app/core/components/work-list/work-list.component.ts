@@ -10,6 +10,7 @@ import { WorkListService } from '../../services/work-list.service';
 export class WorkListComponent {
   workList: Array<Work> = [];
   showHidden: boolean = false;
+  formOpened: boolean = false;
 
   constructor(private service: WorkListService) {}
 
@@ -23,5 +24,12 @@ export class WorkListComponent {
 
   hide(index: number) {
     this.workList[index].hidden = !this.workList[index].hidden;
+  }
+
+  addNewWork(newWork: Work) {
+    newWork.hidden = false;
+
+    this.workList.push(newWork)
+    console.log(this.workList)
   }
 }

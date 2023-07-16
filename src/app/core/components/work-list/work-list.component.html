@@ -1,8 +1,9 @@
 <div class="container-md">
   <div class="menuBar mt-4">
+    <button (click)="formOpened = true" class="btn btn-primary">+ add new</button>
     <button
       (click)="showHidden = !showHidden"
-      class="btn showHidden" [class]="showHidden ? 'btn-secondary' : 'btn-outline-secondary'">
+      class="btn showHidden ms-2" [class]="showHidden ? 'btn-secondary' : 'btn-outline-secondary'">
       {{ showHidden ? 'see shown' : 'show hidden' }}
     </button>
   </div>
@@ -24,5 +25,5 @@
     </div>
   </div>
 
-  <work-form></work-form>
+  <work-form [(openForm)]="formOpened" (newWorkEvent)="addNewWork($event)"></work-form>
 </div>
