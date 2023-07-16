@@ -1,5 +1,5 @@
 <div *ngIf="openForm" class="formContainer">
-  <form [formGroup]="form" (ngSubmit)="addNewWork(form)" class="container mt-4 p-4">
+  <form [formGroup]="form" (ngSubmit)="submit(form)" class="container mt-4 p-4">
     <div class="form-group">
       <input formControlName="title" type="text" class="form-control" required placeholder="title*" />
       <textarea formControlName="details" type="text" class="form-control mt-2" rows="2" required placeholder="details*"></textarea>

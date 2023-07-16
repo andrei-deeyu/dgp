@@ -6,6 +6,10 @@
 }
 
 div.row > div.col {
+  div.conditionalShow {
+    position: relative;
+  }
+
   div.conditionalShow.hidden {
     background-color: rgba(128, 128, 128, 0.1);
     h4, p { color: gray }
@@ -21,5 +25,23 @@ div.row > div.col {
   h4:hover {
     cursor: pointer;
     color: darkblue;
+  }
+
+  button {
+    height: 2rem;
+    line-height: 1rem;
+  }
+
+  div.workSettings {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: .375rem;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
   }
 }
