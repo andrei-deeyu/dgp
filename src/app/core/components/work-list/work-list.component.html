@@ -4,7 +4,10 @@
     <button
       (click)="showHidden = !showHidden"
       class="btn showHidden ms-2" [class]="showHidden ? 'btn-secondary' : 'btn-outline-secondary'">
-      {{ showHidden ? 'see shown' : 'show hidden' }}
+      <span
+        class="btn bi" [class]="showHidden ? 'bi-eye' : 'bi-eye-slash-fill'"
+        > {{ showHidden ? 'see shown' : 'show hidden' }}
+      </span>
     </button>
   </div>
 
@@ -14,14 +17,14 @@
         <img *ngIf="work.img" [src]="work.img" (click)="openLink(work.link)" alt="work picture"/>
         <div class="d-flex flex-row mt-2">
           <h4 (click)="openLink(work.link)" class="flex-fill">{{ work.title }}</h4>
-          <button (click)="toggleWorkSettings(i)" class="btn btn-outline-primary">...</button>
+          <button (click)="toggleWorkSettings($event.target)" class="toggleWorkSettings btn ms-2 bi bi-three-dots"></button>
           <div class="workSettings shadow">
             <div class="d-flex flex-column flex-fill">
-              <button (click)="hideWork(i)" class="btn" [class]="showHidden ? 'btn-secondary' : 'btn-outline-secondary'">
+              <button (click)="hideWork(i, $event.target)" class="btn bi" [class]="work.hidden ? 'bi-eye' : 'bi-eye-slash-fill'">
                 {{ work.hidden ? 'show' : 'hide' }}
               </button>
-              <button (click)="deleteWork(i)" class="btn btn-outline-danger mt-2">delete</button>
-              <button (click)="formOpened = { obj: workList[i], index: i }" class="btn btn-outline-primary mt-2">edit</button>
+              <button (click)="deleteWork(i)" class="btn mt-2 bi bi-trash"> delete</button>
+              <button (click)="formOpened = { obj: workList[i], index: i }" class="btn mt-2 bi bi-pen-fill"> edit</button>
             </div>
           </div>
         </div>

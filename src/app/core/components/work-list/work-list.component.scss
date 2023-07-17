@@ -1,13 +1,7 @@
-.menuBar {
-
-  button.showHidden {
-    width: 8rem;
-  }
-}
-
 div.row > div.col {
   div.conditionalShow {
     position: relative;
+    h4, p { word-break: break-word; }
   }
 
   div.conditionalShow.hidden {
@@ -27,8 +21,8 @@ div.row > div.col {
     color: darkblue;
   }
 
-  button {
-    height: 2rem;
+  button.toggleWorkSettings {
+    max-height: 2rem;
     line-height: 1rem;
   }
 

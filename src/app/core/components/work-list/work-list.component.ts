@@ -25,19 +25,22 @@ export class WorkListComponent {
     window.location.href = link;
   }
 
-  toggleWorkSettings(index: number) {
+  toggleWorkSettings(input: EventTarget | null) {
+    let inputEl = input as HTMLElement;
+
+    let el: HTMLElement | null | undefined = inputEl.parentNode?.querySelector('.workSettings');
     let els = this.elementRef.nativeElement.querySelectorAll('.workSettings');
 
-    els.forEach(( el: HTMLElement ) => els[index] !== el ? el.style.display = 'none' : null);
+    els.forEach(( otherEl: HTMLElement ) => otherEl !== el ? otherEl.style.display = 'none' : null);
 
-    if( els[index].style.display == 'block' )
-      els[index].style.display = 'none'
-    else els[index].style.display = 'block'
+    if( el && el.style.display == 'block' )
+      el.style.display = 'none'
+    else if( el ) el.style.display = 'block'
   }
 
-  hideWork(index: number) {
+  hideWork(index: number, input: EventTarget | null) {
     this.workList[index].hidden = !this.workList[index].hidden;
-    this.toggleWorkSettings(index);
+    this.toggleWorkSettings(input);
   }
 
   deleteWork(index: number) {

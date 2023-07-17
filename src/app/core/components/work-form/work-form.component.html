@@ -1,12 +1,13 @@
 <div *ngIf="openForm" class="formContainer">
   <form [formGroup]="form" (ngSubmit)="submit(form)" class="container mt-4 p-4">
+    <img *ngIf="img" [src]="img">
     <div class="form-group">
-      <input formControlName="title" type="text" class="form-control" required placeholder="title*" />
+      <input formControlName="title" type="text" class="form-control form-control-lg fw-medium" required placeholder="title*" />
       <textarea formControlName="details" type="text" class="form-control mt-2" rows="2" required placeholder="details*"></textarea>
       <input formControlName="link" type="text" class="form-control mt-2" required placeholder="link*" />
       <input type="file" (change)="selectFile($event)" class="form-control mt-2" />
     </div>
-    <div class="mt-2">
+    <div class="mt-4">
       <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Submit</button>
       <button type="button" (click)="closeForm()" class="btn btn-outline-secondary ms-2">Cancel</button>
     </div>

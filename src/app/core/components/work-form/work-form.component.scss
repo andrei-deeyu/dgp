@@ -8,6 +8,14 @@ div.formContainer {
   z-index: 10;
 }
 
+.container {
+  max-width: 600px;
+}
+
 form {
   background-color: white;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
